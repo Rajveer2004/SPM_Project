@@ -1,0 +1,62 @@
+package sample;
+
+import java.util.*;
+
+public class Main
+{
+    int n;
+    double l;
+
+        Main(int nn)
+        {
+            n = nn;
+            l = 0;
+        }
+
+        int sum_pow(int i)
+        {
+            String nstr = String.valueOf(i);
+            l = nstr.length();
+
+            int temp = i;
+            double rem, sum = 0;
+
+            while(temp>0)
+            {
+                rem = temp%10;
+                sum = sum + (Math.pow(rem, l));
+                temp = temp/10;
+            }
+
+            return (int)sum;
+        }
+
+        void isArmstrong()
+        {
+            int checker = sum_pow(n);
+            System.out.println("Value after processing\n-> "+checker);
+
+            if (checker == n)
+            {
+                System.out.println(n +" is an Armstrong number.");
+            }
+
+            else
+            {
+                System.out.println(n +" is not an Armstrong number.");
+            }
+        }
+
+        public static void main(String[]args)
+        {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter a number\n-> ");
+            int nn = sc.nextInt();
+
+            Main obj = new Main(nn);
+            obj.isArmstrong();
+
+        }
+
+}
